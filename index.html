@@ -1,376 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Drive761</title>
 
-<style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#0B1324;
-    color:white;
-}
+<title>Drive761 - World Cup Geo</title>
 
-.header{
-    background:#0057B8;
-    padding:25px;
-    text-align:center;
-}
+<link rel="stylesheet" href="styles.css">
 
-.logo{
-    max-height:70px;
-    margin-bottom:15px;
-    background:white;
-    padding:10px;
-    border-radius:10px;
-}
-
-.header h1{
-    margin:0;
-    font-size:48px;
-}
-
-.tagline{
-    margin-top:10px;
-    line-height:1.8;
-    font-size:18px;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
-}
-
-.card{
-    background:#1F2937;
-    border-radius:14px;
-    padding:20px;
-    margin-bottom:20px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.stat{
-    background:#374151;
-    border-radius:10px;
-    padding:20px;
-    text-align:center;
-}
-
-.stat-value{
-    font-size:40px;
-    font-weight:bold;
-}
-
-.menu{
-    display:grid;
-    gap:12px;
-}
-
-.menu-item{
-    background:#1F2937;
-    padding:18px;
-    border-radius:12px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.menu-item:hover{
-    background:#374151;
-}
-
-button{
-    background:#FFD100;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:0.9;
-}
-
-.footer{
-    text-align:center;
-    opacity:.7;
-    padding:20px;
-}
-
-#adminPanel{
-    display:none;
-}
-
-.status-online{
-    color:#22C55E;
-    font-weight:bold;
-}
-
-</style>
 </head>
 
 <body>
 
 <div class="header">
 
-    <img src="kwikfit-logo.png" class="logo">
+<img src="assets/kwikfit-logo.png" class="logo">
 
-    <h1>DRIVE761</h1>
+<h1>DRIVE761</h1>
 
-    <div class="tagline">
-        Driving Performance.<br>
-        Rewarding Success.<br>
-        Keeping Customers Safe on the Road.
-    </div>
+<h2>⚽ World Cup Geo</h2>
+
+<p>
+Driving Performance.<br>
+Rewarding Success.<br>
+Keeping Customers Safe on the Road.
+</p>
 
 </div>
 
 <div class="container">
 
-<div class="grid">
-
 <div class="card">
 
-<h2>👋 Welcome Anthony</h2>
-
-<p><strong>Region:</strong> 761</p>
-
-<p><strong>Role:</strong> Regional Manager</p>
-
-</div>
-
-<div class="card">
-
-<h2>📢 Featured Campaign</h2>
-
-<p><strong>761 May AC Extras</strong></p>
-
-<p>100 Doors</p>
-
-<p>4 x £25 Delivered Drinks</p>
-
-<p>Status: Ready</p>
-
-</div>
-
-<div class="card">
-
-<h2>🟢 System Status</h2>
-
-<p class="status-online">ONLINE</p>
-
-<p>Version 0.3</p>
-
-<p>Region 761 Active</p>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>📊 Today's Activity</h2>
-
-<div class="grid">
-
-<div class="stat">
-<div class="stat-value">0</div>
-TPMS Checks
-</div>
-
-<div class="stat">
-<div class="stat-value">0</div>
-Doors Opened
-</div>
-
-<div class="stat">
-<div class="stat-value">0</div>
-Participating Centres
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>🔒 Administration</h2>
-
-<button onclick="unlockAdmin()">Unlock Admin Mode</button>
-
-<div id="adminPanel">
-
-<hr>
-
-<p>✅ Admin Mode Active</p>
-
-<p>Campaign Builder</p>
-
-<p>Door Management</p>
-
-<p>Export Results</p>
-
-<p>System Settings</p>
-
-</div>
-
-<div class="menu">
-
-<div class="menu-item" onclick="showBuilder()">
-📢 Campaign Builder
-</div>
-
-<div class="menu-item">
-🚀 Launch Campaign
-</div>
-
-<div class="menu-item">
-🎮 Games
-</div>
-
-<div class="menu-item">
-🏆 Leaderboards
-</div>
-
-<div class="menu-item">
-📊 Reports
-</div>
-
-<div class="menu-item">
-🏢 Centres
-</div>
-
-</div>
-
-</div>
-<div class="card" id="campaignBuilder" style="display:none;">
-
-<h2>📢 Campaign Builder</h2>
-
-<p>
-Campaign Name
-</p>
-
-<input id="campaignName" style="width:100%;padding:10px;margin-bottom:10px;">
-
-<p>
-Game Type
-</p>
-
-<select id="gameType" style="width:100%;padding:10px;margin-bottom:10px;">
-
-<option>Door Challenge</option>
-
-<option>Prize Wheel</option>
-
-<option>Scratch Card</option>
-
-</select>
-
-<p>
-Number of Doors
-</p>
-
-<input id="doorCount" type="number" value="100" style="width:100%;padding:10px;margin-bottom:10px;">
-
-<p>
-Prize Description
-</p>
-
-<input id="prizeDescription" style="width:100%;padding:10px;margin-bottom:10px;">
-
-<p>
-Start Date
-</p>
-
-<input id="startDate" type="date" style="width:100%;padding:10px;margin-bottom:10px;">
-
-<p>
-End Date
-</p>
-
-<input id="endDate" type="date" style="width:100%;padding:10px;margin-bottom:10px;">
-
-<button onclick="saveCampaign()">
-
-Save Campaign
-
+<h2>Centre Code</h2>
+
+<input
+id="centreCode"
+type="text"
+placeholder="Enter Centre Code">
+
+<button id="openDoorBtn">
+🎰 RANDOM DOOR
 </button>
 
 </div>
-<div class="footer">
 
-Drive761 Version 0.3
+<div class="card">
+
+<h2>🏆 Most Doors Opened</h2>
+
+<div id="leaderboard">
+No activity yet
+</div>
 
 </div>
 
-<script>
+<div class="card">
 
-function unlockAdmin(){
+<h2>📊 Campaign Status</h2>
 
-let password = prompt("Enter Admin Password");
+<p id="doorsRemaining">
+100 Doors Remaining
+</p>
 
-if(password === "Drive761!")
-{
-document.getElementById("adminPanel").style.display="block";
-alert("Admin Mode Activated");
-}
-else
-{
-alert("Incorrect Password");
-}
+</div>
 
-}
+</div>
 
-function showBuilder(){
+<div id="spinnerOverlay">
 
-document.getElementById("campaignBuilder").style.display="block";
+<div class="spinnerContent">
 
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-});
+<h1>⚽ WORLD CUP GEO</h1>
 
-}
+<h2>SELECTING DOOR...</h2>
 
-function saveCampaign(){
+<div id="flashNumber">
+1
+</div>
 
-const name =
-document.getElementById("campaignName").value;
+</div>
 
-const game =
-document.getElementById("gameType").value;
+</div>
 
-const doors =
-document.getElementById("doorCount").value;
+<div id="revealOverlay">
 
-const prize =
-document.getElementById("prizeDescription").value;
+<div class="revealContent">
 
-localStorage.setItem(
-"drive761Campaign",
-JSON.stringify({
-name,
-game,
-doors,
-prize
-})
-);
+<img id="revealImage">
 
-alert(
-"Campaign Saved Successfully"
-);
+<h1 id="prizeText"></h1>
 
-}
+<h2 id="centreText"></h2>
 
-</script>
+<h3 id="doorText"></h3>
+
+<button onclick="closeReveal()">
+Continue
+</button>
+
+</div>
+
+</div>
+
+<audio id="drumroll">
+<source src="assets/drumroll.mp3" type="audio/mpeg">
+</audio>
+
+<script src="app.js"></script>
 
 </body>
 </html>
