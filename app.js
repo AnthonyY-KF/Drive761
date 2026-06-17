@@ -267,6 +267,7 @@ document
 .getElementById("revealOverlay")
 .style.display="flex";
 
+updatePrizeCounts();
 updateLeaderboard();
 
 }
@@ -352,3 +353,124 @@ document
 
 updateStatus();
 updateLeaderboard();
+updatePrizeCounts();
+
+function updatePrizeCounts(){
+
+const results =
+JSON.parse(
+localStorage.getItem("results")
+) || [];
+
+let drinksWon = 0;
+let sweetsWon = 0;
+
+results.forEach(r=>{
+
+if(r.prize==="Delivered Drinks"){
+drinksWon++;
+}
+
+if(r.prize==="Sweet Tub"){
+sweetsWon++;
+}
+
+});
+
+document
+.getElementById("drinksRemaining")
+.innerText =
+"Delivered Drinks Remaining: " +
+(4-drinksWon);
+
+document
+.getElementById("sweetsRemaining")
+.innerText =
+"Sweet Tubs Remaining: " +
+(10-sweetsWon);
+
+}
+
+function exportResults(){
+
+const password =
+prompt("Enter Admin Password");
+
+if(password!==ADMIN_PASSWORD){
+alert("Incorrect Password");
+return;
+}
+
+const results =
+JSON.parse(
+localStorage.getItem("results")
+) || [];
+
+let csv =
+"Centre,Door,Prize,Date\n";
+
+results.forEach(r=>{
+
+csv +=
+`${r.centre},${r.door},${r.prize},${r.date}\n`;
+
+});
+
+const blob =
+new Blob(
+[csv],
+{type:"text/csv"}
+);
+
+const url =
+URL.createObjectURL(blob);
+
+const a =
+document.createElement("a");
+
+a.href = url;
+
+a.download =
+"WorldCupGeoResults.csv";
+
+a.click();
+
+}
+
+function resetCampaign(){
+
+const password =
+prompt(
+"Enter Admin Password"
+);
+
+if(password!==ADMIN_PASSWORD){
+
+alert("Incorrect Password");
+
+return;
+}
+
+if(
+!confirm(
+"Reset campaign?"
+)
+){
+return;
+}
+
+localStorage.removeItem(
+"worldCupGeoDoors"
+);
+
+localStorage.removeItem(
+"openedDoors"
+);
+
+localStorage.removeItem(
+"results"
+);
+
+location.reload();
+
+}
