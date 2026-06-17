@@ -221,26 +221,90 @@ Participating Centres
 
 </div>
 
-</div>
-
 <div class="menu">
 
-<div class="menu-item">🚀 Launch Campaign</div>
+<div class="menu-item" onclick="showBuilder()">
+📢 Campaign Builder
+</div>
 
-<div class="menu-item">📢 Campaigns</div>
+<div class="menu-item">
+🚀 Launch Campaign
+</div>
 
-<div class="menu-item">🎮 Games</div>
+<div class="menu-item">
+🎮 Games
+</div>
 
-<div class="menu-item">🏆 Leaderboards</div>
+<div class="menu-item">
+🏆 Leaderboards
+</div>
 
-<div class="menu-item">📊 Reports</div>
+<div class="menu-item">
+📊 Reports
+</div>
 
-<div class="menu-item">🏢 Centres</div>
-
+<div class="menu-item">
+🏢 Centres
 </div>
 
 </div>
 
+</div>
+<div class="card" id="campaignBuilder" style="display:none;">
+
+<h2>📢 Campaign Builder</h2>
+
+<p>
+Campaign Name
+</p>
+
+<input id="campaignName" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<p>
+Game Type
+</p>
+
+<select id="gameType" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<option>Door Challenge</option>
+
+<option>Prize Wheel</option>
+
+<option>Scratch Card</option>
+
+</select>
+
+<p>
+Number of Doors
+</p>
+
+<input id="doorCount" type="number" value="100" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<p>
+Prize Description
+</p>
+
+<input id="prizeDescription" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<p>
+Start Date
+</p>
+
+<input id="startDate" type="date" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<p>
+End Date
+</p>
+
+<input id="endDate" type="date" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<button onclick="saveCampaign()">
+
+Save Campaign
+
+</button>
+
+</div>
 <div class="footer">
 
 Drive761 Version 0.3
@@ -255,13 +319,54 @@ let password = prompt("Enter Admin Password");
 
 if(password === "Drive761!")
 {
-    document.getElementById("adminPanel").style.display="block";
-    alert("Admin Mode Activated");
+document.getElementById("adminPanel").style.display="block";
+alert("Admin Mode Activated");
 }
 else
 {
-    alert("Incorrect Password");
+alert("Incorrect Password");
 }
+
+}
+
+function showBuilder(){
+
+document.getElementById("campaignBuilder").style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+}
+
+function saveCampaign(){
+
+const name =
+document.getElementById("campaignName").value;
+
+const game =
+document.getElementById("gameType").value;
+
+const doors =
+document.getElementById("doorCount").value;
+
+const prize =
+document.getElementById("prizeDescription").value;
+
+localStorage.setItem(
+"drive761Campaign",
+JSON.stringify({
+name,
+game,
+doors,
+prize
+})
+);
+
+alert(
+"Campaign Saved Successfully"
+);
 
 }
 
