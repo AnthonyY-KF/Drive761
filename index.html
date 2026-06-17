@@ -8,7 +8,7 @@
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#111827;
+    background:#0B1324;
     color:white;
 }
 
@@ -18,44 +18,53 @@ body{
     text-align:center;
 }
 
+.logo{
+    max-height:70px;
+    margin-bottom:15px;
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
 .header h1{
     margin:0;
-    font-size:42px;
+    font-size:48px;
 }
 
 .tagline{
     margin-top:10px;
-    line-height:1.6;
+    line-height:1.8;
+    font-size:18px;
 }
 
 .container{
-    max-width:1000px;
+    max-width:1200px;
     margin:auto;
     padding:20px;
 }
 
 .card{
     background:#1F2937;
-    border-radius:12px;
+    border-radius:14px;
     padding:20px;
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
-.stats{
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
 }
 
 .stat{
     background:#374151;
-    padding:20px;
     border-radius:10px;
+    padding:20px;
     text-align:center;
 }
 
 .stat-value{
-    font-size:32px;
+    font-size:40px;
     font-weight:bold;
 }
 
@@ -74,14 +83,34 @@ body{
 
 .menu-item:hover{
     background:#374151;
-    transform:translateY(-2px);
+}
+
+button{
+    background:#FFD100;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
 }
 
 .footer{
     text-align:center;
-    margin-top:30px;
-    opacity:0.7;
-    font-size:12px;
+    opacity:.7;
+    padding:20px;
+}
+
+#adminPanel{
+    display:none;
+}
+
+.status-online{
+    color:#22C55E;
+    font-weight:bold;
 }
 
 </style>
@@ -91,7 +120,9 @@ body{
 
 <div class="header">
 
-    <h1>🚗 DRIVE761</h1>
+    <img src="kwikfit-logo.png" class="logo">
+
+    <h1>DRIVE761</h1>
 
     <div class="tagline">
         Driving Performance.<br>
@@ -103,72 +134,138 @@ body{
 
 <div class="container">
 
-    <div class="card">
+<div class="grid">
 
-        <h2>👋 Welcome Anthony</h2>
+<div class="card">
 
-        <p><strong>Region:</strong> 761</p>
+<h2>👋 Welcome Anthony</h2>
 
-    </div>
+<p><strong>Region:</strong> 761</p>
 
-    <div class="card">
-
-        <h2>📢 Active Campaign</h2>
-
-        <p>No Active Campaign</p>
-
-    </div>
-
-    <div class="card">
-
-        <h2>📊 Performance Snapshot</h2>
-
-        <div class="stats">
-
-            <div class="stat">
-                <div class="stat-value">0</div>
-                TPMS Checks
-            </div>
-
-            <div class="stat">
-                <div class="stat-value">0</div>
-                Campaigns
-            </div>
-
-            <div class="stat">
-                <div class="stat-value">0</div>
-                Centres
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="menu">
-
-        <div class="menu-item">🚀 Launch Campaign</div>
-
-        <div class="menu-item">📢 Campaigns</div>
-
-        <div class="menu-item">🎮 Games</div>
-
-        <div class="menu-item">🏆 Leaderboards</div>
-
-        <div class="menu-item">📊 Reports</div>
-
-        <div class="menu-item">🏢 Centres</div>
-
-        <div class="menu-item">⚙️ Administration</div>
-
-    </div>
-
-    <div class="footer">
-
-        Drive761 Version 0.2
-
-    </div>
+<p><strong>Role:</strong> Regional Manager</p>
 
 </div>
+
+<div class="card">
+
+<h2>📢 Featured Campaign</h2>
+
+<p><strong>761 May AC Extras</strong></p>
+
+<p>100 Doors</p>
+
+<p>4 x £25 Delivered Drinks</p>
+
+<p>Status: Ready</p>
+
+</div>
+
+<div class="card">
+
+<h2>🟢 System Status</h2>
+
+<p class="status-online">ONLINE</p>
+
+<p>Version 0.3</p>
+
+<p>Region 761 Active</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📊 Today's Activity</h2>
+
+<div class="grid">
+
+<div class="stat">
+<div class="stat-value">0</div>
+TPMS Checks
+</div>
+
+<div class="stat">
+<div class="stat-value">0</div>
+Doors Opened
+</div>
+
+<div class="stat">
+<div class="stat-value">0</div>
+Participating Centres
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔒 Administration</h2>
+
+<button onclick="unlockAdmin()">Unlock Admin Mode</button>
+
+<div id="adminPanel">
+
+<hr>
+
+<p>✅ Admin Mode Active</p>
+
+<p>Campaign Builder</p>
+
+<p>Door Management</p>
+
+<p>Export Results</p>
+
+<p>System Settings</p>
+
+</div>
+
+</div>
+
+<div class="menu">
+
+<div class="menu-item">🚀 Launch Campaign</div>
+
+<div class="menu-item">📢 Campaigns</div>
+
+<div class="menu-item">🎮 Games</div>
+
+<div class="menu-item">🏆 Leaderboards</div>
+
+<div class="menu-item">📊 Reports</div>
+
+<div class="menu-item">🏢 Centres</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+Drive761 Version 0.3
+
+</div>
+
+<script>
+
+function unlockAdmin(){
+
+let password = prompt("Enter Admin Password");
+
+if(password === "Drive761!")
+{
+    document.getElementById("adminPanel").style.display="block";
+    alert("Admin Mode Activated");
+}
+else
+{
+    alert("Incorrect Password");
+}
+
+}
+
+</script>
 
 </body>
 </html>
