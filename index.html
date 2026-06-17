@@ -1,94 +1,171 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Drive761</title>
+<title>Drive761</title>
 
-    <style>
+<style>
 
-        body{
-            margin:0;
-            font-family:Arial, sans-serif;
-            background:#111827;
-            color:white;
-        }
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#111827;
+    color:white;
+}
 
-        .header{
-            background:#0057B8;
-            padding:20px;
-            text-align:center;
-        }
+.header{
+    background:#0057B8;
+    padding:25px;
+    text-align:center;
+}
 
-        .header h1{
-            margin:0;
-            font-size:40px;
-        }
+.header h1{
+    margin:0;
+    font-size:42px;
+}
 
-        .header p{
-            margin-top:10px;
-        }
+.tagline{
+    margin-top:10px;
+    line-height:1.6;
+}
 
-        .container{
-            max-width:900px;
-            margin:auto;
-            padding:20px;
-        }
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
 
-        .card{
-            background:#1F2937;
-            padding:20px;
-            margin-bottom:15px;
-            border-radius:12px;
-            cursor:pointer;
-            transition:0.3s;
-        }
+.card{
+    background:#1F2937;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:15px;
+}
 
-        .card:hover{
-            transform:translateY(-3px);
-            background:#374151;
-        }
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
 
-        h2{
-            margin-top:0;
-        }
+.stat{
+    background:#374151;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
 
-    </style>
+.stat-value{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.menu{
+    display:grid;
+    gap:12px;
+}
+
+.menu-item{
+    background:#1F2937;
+    padding:18px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu-item:hover{
+    background:#374151;
+    transform:translateY(-2px);
+}
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    opacity:0.7;
+    font-size:12px;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="header">
-    <h1>🚗 Drive761</h1>
-    <p>Driving Performance. Rewarding Success.</p>
+
+    <h1>🚗 DRIVE761</h1>
+
+    <div class="tagline">
+        Driving Performance.<br>
+        Rewarding Success.<br>
+        Keeping Customers Safe on the Road.
+    </div>
+
 </div>
 
 <div class="container">
 
     <div class="card">
-        🚀 Launch Campaign
+
+        <h2>👋 Welcome Anthony</h2>
+
+        <p><strong>Region:</strong> 761</p>
+
     </div>
 
     <div class="card">
-        📢 Campaigns
+
+        <h2>📢 Active Campaign</h2>
+
+        <p>No Active Campaign</p>
+
     </div>
 
     <div class="card">
-        🎮 Games
+
+        <h2>📊 Performance Snapshot</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+                <div class="stat-value">0</div>
+                TPMS Checks
+            </div>
+
+            <div class="stat">
+                <div class="stat-value">0</div>
+                Campaigns
+            </div>
+
+            <div class="stat">
+                <div class="stat-value">0</div>
+                Centres
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="card">
-        🏆 Leaderboards
+    <div class="menu">
+
+        <div class="menu-item">🚀 Launch Campaign</div>
+
+        <div class="menu-item">📢 Campaigns</div>
+
+        <div class="menu-item">🎮 Games</div>
+
+        <div class="menu-item">🏆 Leaderboards</div>
+
+        <div class="menu-item">📊 Reports</div>
+
+        <div class="menu-item">🏢 Centres</div>
+
+        <div class="menu-item">⚙️ Administration</div>
+
     </div>
 
-    <div class="card">
-        📊 Reports
-    </div>
+    <div class="footer">
 
-    <div class="card">
-        🏢 Centres
-    </div>
+        Drive761 Version 0.2
 
-    <div class="card">
-        ⚙️ Administration
     </div>
 
 </div>
