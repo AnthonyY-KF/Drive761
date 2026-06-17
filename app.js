@@ -267,8 +267,16 @@ document
 .getElementById("revealOverlay")
 .style.display="flex";
 
+if(prize!=="No Win"){
+
+createConfetti();
+
+}
+
 updatePrizeCounts();
 updateLeaderboard();
+updateRecentWinners();
+updateCurrentLeader();
 
 }
 
@@ -354,6 +362,8 @@ document
 updateStatus();
 updateLeaderboard();
 updatePrizeCounts();
+updateRecentWinners();
+updateCurrentLeader();
 
 function updatePrizeCounts(){
 
@@ -472,5 +482,135 @@ localStorage.removeItem(
 );
 
 location.reload();
+
+}
+
+function createConfetti(){
+
+for(let i=0;i<150;i++){
+
+const confetti =
+document.createElement("div");
+
+confetti.className =
+"confetti";
+
+confetti.style.left =
+Math.random()*100+"vw";
+
+confetti.style.background =
+`hsl(${Math.random()*360},100%,50%)`;
+
+document.body.appendChild(
+confetti
+);
+
+setTimeout(()=>{
+
+confetti.remove();
+
+},4000);
+
+}
+
+}
+
+function updateRecentWinners(){
+
+const results =
+JSON.parse(
+localStorage.getItem("results")
+) || [];
+
+const winners =
+results.filter(r=>
+r.prize!=="No Win"
+);
+
+let html="";
+
+winners
+.slice(-5)
+.reverse()
+.forEach(w=>{
+
+html +=
+`${w.centre} - ${w.prize}<br>`;
+
+});
+
+if(html===""){
+
+html="No Winners Yet";
+
+}
+
+document
+.getElementById("recentWinners")
+.innerHTML=html;
+
+}
+
+function updateCurrentLeader(){
+
+const results =
+JSON.parse(
+localStorage.getItem("results")
+) || [];
+
+let centres={};
+
+results.forEach(r=>{
+
+if(!centres[r.centre]){
+
+centres[r.centre]=0;
+
+}
+
+centres[r.centre]++;
+
+});
+
+const sorted =
+Object.entries(centres)
+.sort((a,b)=>b[1]-a[1]);
+
+if(sorted.length===0){
+
+document
+.getElementById("currentLeader")
+.innerHTML =
+"No Leader Yet";
+
+return;
+
+}
+
+document
+.getElementById("currentLeader")
+.innerHTML =
+
+`<div class="leaderBanner">
+Centre ${sorted[0][0]}
+<br>
+${sorted[0][1]} Doors Opened
+</div>`;
+
+}
+
+function togglePresentationMode(){
+
+document.body.classList.toggle(
+"presentationMode"
+);
+
+}
+
+function toggleScreenshotMode(){
+
+document.body.classList.toggle(
+"screenshotMode"
+);
 
 }
